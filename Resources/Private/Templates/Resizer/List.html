@@ -1,0 +1,183 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+<h1>
+    <f:translate key="ext_title" />
+</h1>
+
+<f:flashMessages />
+    <style type="text/css">
+        h1,h2,h3,h4,h5,h6,form
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .greyBg
+        {
+            background: #DDDDDD;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .greyBg h4
+        {
+            background: #EBEBEB;
+            margin: 10px 0;
+            padding: 2px 5px;
+        }
+
+        .folderList input[type=submit]
+        {
+            padding: 0 10px;
+            margin: 5px;
+        }
+
+        table
+        {
+            border: 1px solid #f4f4f4;
+            border-collapse: separate;
+            width: 100%;
+        }
+
+        table td
+        {
+            border: 1px solid #f4f4f4;
+            border-collapse: separate;
+        }
+
+        .alignRight
+        {
+            text-align: right;
+        }
+
+        .alignCenter
+        {
+            text-align: center;
+        }
+
+        .dims
+        {
+            float: left;
+            margin: 0 15px 10px 0;
+            width: 31%;
+        }
+
+        .dims label
+        {
+            display: block;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .dims input
+        {
+            width: 100%;
+            font-size: 14pt;
+            text-align: center;
+        }
+
+        .doResize.dims
+        {
+            float: right;
+            margin-right: 0;
+        }
+
+        .stretcher
+        {
+            clear: both;
+        }
+
+    </style>
+
+    <div class="greyBg">
+        <form action="" method="post">
+            <input type="hidden" value="true" name="getFiles" />
+            <input type="hidden" value="" name="rootRelPath" />
+
+            <input type="submit" value="<f:translate key='back_to_root_folder' />" />
+        </form>
+    </div>
+
+    <div class="greyBg">
+        <h3><f:translate key="supported_folders_in_this_folder" /></h3>
+        <f:if condition="<f:count subject='{folders}' /> <= 0">
+            <f:then>
+                <h4>fileadmin/{breadCrumb}</h4>
+                <h4 class="alignCenter"><f:translate key="there_are_no_supported_folders_in_this_folder" /></h4>
+            </f:then>
+            <f:else>
+                <h4>fileadmin/{breadCrumb}</h4>
+                <f:for each="{folders}" as="folder">
+                    <form action="" method="post" class="folderList">
+                        <input type="hidden" value="true" name="getFiles" />
+                        <input type="hidden" value="{folder.basename}/" name="relPath" />
+
+                        <input type="submit" value="{folder.basename}" />
+                    </form>
+                </f:for>
+            </f:else>
+        </f:if>
+    </div>
+
+    <div class="greyBg">
+        <h3><f:translate key="supported_files_in_this_folder" /></h3>
+        <f:if condition="<f:count subject='{files}' /> <= 0">
+            <f:then>
+                <h4 class="alignCenter"><f:translate key="there_are_no_supported_files_in_this_folder" /></h4>
+            </f:then>
+            <f:else>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="hidden" value="true" name="doResize" />
+                    <table class="fileList">
+                        <tr>
+                            <th>
+                                <f:translate key="filename" />
+                            </th>
+                            <th>
+                                <f:translate key="dimensions" />
+                            </th>
+                            <th>
+                                <f:translate key="mime" />
+                            </th>
+                        </tr>
+                        <f:for each="{files}" as="file">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="files[]" value="{file.url}" id="{file.uniqId}" />
+                                    <label for="{file.uniqId}">
+                                        {file.filename}.{file.extension}
+                                    </label>
+                                </td>
+                                <td class="alignRight">
+                                    {file.width} x {file.height}
+                                </td>
+                                <td class="alignRight">
+                                    {file.mime}
+                                </td>
+                            </tr>
+                        </f:for>
+                    </table>
+                    <div class="dimsWrapper">
+                        <h4 class="alignCenter"><f:translate key="enter_new_dimensions" /></h4>
+
+                        <div class="dims">
+                            <label for="width"><f:translate key="width" /></label>
+                            <input type="text" name="width" id="width" />
+                        </div>
+
+                        <div class="dims">
+                            <label for="height"><f:translate key="height" /></label>
+                            <input type="text" name="height" id="height" />
+                        </div>
+
+                        <div class="dims doResize">
+                            <label>&nbsp;</label>
+                            <input type="submit" value="<f:translate key='resize' />" />
+                        </div>
+                        <div class="stretcher"></div>
+                    </div>
+                </form>
+            </f:else>
+        </f:if>
+    </div>
+</f:section>

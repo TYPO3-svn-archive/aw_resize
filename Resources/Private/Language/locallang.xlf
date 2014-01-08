@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-12-20T12:49:07Z" product-name="aw_resize">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_awresize_domain_model_resizer">
+				<source>Resizer</source>
+			</trans-unit>
+
+			<trans-unit id="ext_title">
+				<source>Image Resizer</source>
+			</trans-unit>
+
+			<trans-unit id="supported_folders_in_this_folder">
+				<source>Supported folders in this folder</source>
+			</trans-unit>
+
+			<trans-unit id="there_are_no_supported_folders_in_this_folder">
+				<source>There are no supported folders in this folder</source>
+			</trans-unit>
+
+			<trans-unit id="supported_files_in_this_folder">
+				<source>Supported files in this folder</source>
+			</trans-unit>
+
+			<trans-unit id="there_are_no_supported_files_in_this_folder">
+				<source>There are no supported files in this folder</source>
+			</trans-unit>
+
+			<trans-unit id="filename">
+				<source>Filename</source>
+			</trans-unit>
+
+			<trans-unit id="dimensions">
+				<source>Dimensions</source>
+			</trans-unit>
+
+			<trans-unit id="mime">
+				<source>Mime</source>
+			</trans-unit>
+
+			<trans-unit id="enter_new_dimensions">
+				<source>Enter new dimensions</source>
+			</trans-unit>
+
+			<trans-unit id="width">
+				<source>Width</source>
+			</trans-unit>
+
+			<trans-unit id="height">
+				<source>Height</source>
+			</trans-unit>
+
+			<trans-unit id="resize">
+				<source>Resize !</source>
+			</trans-unit>
+
+			<trans-unit id="back_to_root_folder">
+				<source>Back to root folder</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
