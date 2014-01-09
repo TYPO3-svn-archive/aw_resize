@@ -15,12 +15,12 @@ at http://typo3.org/extensions/repository/view/aw_resize
 Bugs and Known Issues
 -----------------------------------
 
-Issues, bugs and feature requests can be posted at the `Issue Tracker`_
+Issues and bugs can be posted at the `Bug Tracker`_
 
 To Do
 -----------
 
-To do list can be found at the `Issue Tracker`_
+Feature requests along with the TODO list can be found at the `Feature Tracker`_
 
 
 Change Log
@@ -28,4 +28,6 @@ Change Log
 Change log can be found at the `Issue Tracker`_
 
 .. _Issue Tracker: http://forge.typo3.org/projects/extension-aw_resize/issues
+.. _Feature Tracker: http://forge.typo3.org/projects/extension-aw_resize/issues?query_id=504
+.. _Bug Tracker: http://forge.typo3.org/projects/extension-aw_resize/issues?query_id=504
 

@@ -16,7 +16,7 @@ if (TYPO3_MODE === 'BE') {
 	 */
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'Alexweb.' . $_EXTKEY,
-		'web',	 // Make module a submodule of 'web'
+		'user',	 // Make module a submodule of 'web'
 		'awresize',	// Submodule key
 		'',						// Position
 		array(
@@ -65,7 +65,8 @@ $TCA['tx_awresize_domain_model_resizer'] = array(
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:/locallang_db.php:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY,"pi1/static/","A Sample Flexform Plugin");
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:'.$_EXTKEY.'/flexform_ds_pi1.xml');
-
+/*
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Resources/Public/css',"styles.css");
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Resources/Public/js',"jquery-1.9.1.min.js");
+*/
 ?>

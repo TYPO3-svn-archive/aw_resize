@@ -1,10 +1,10 @@
 =================
-Extension Name
+Image Resizer
 =================
 
 :Extension name: Image Resizer
 :Extension key: aw_resize
-:Version: 1.1.0
+:Version: 1.2.0
 :Description: resize images in the backend on-demand
 :Language: en
 :Author: Alexandros

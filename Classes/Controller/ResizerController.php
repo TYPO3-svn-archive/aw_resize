@@ -79,7 +79,6 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->view->assign('folders', $folders);
 		$this->view->assign('files', $files);
 		$this->view->assign('breadCrumb', $breadCrumb);
-		$this->view->assign('somevar', "somevalue");
 
         if(isset($_POST["doResize"]))
         {

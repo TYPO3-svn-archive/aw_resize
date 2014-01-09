@@ -87,8 +87,56 @@
             clear: both;
         }
 
+        .fileList img
+        {
+            max-width: 100px;
+        }
+
+        .fileList td:first-child
+        {
+            width: 1px;
+        }
+
     </style>
 
+
+    <script type="text/javascript" src="/typo3/contrib/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        var WindowHandler =
+        {
+            url : null,
+            params : "",
+            winObj : null,
+            openWindow : function()
+            {
+                if(this.winObj != null)
+                    this.winObj.close();
+
+                this.winObj = window.open(this.url,"popup",this.params);
+                this.winObj.focus();
+            }
+        };
+
+        $(function($)
+        {
+            $(".filelist")
+                .on({
+                    click:function()
+                    {
+                        var self = $(this);
+                        var width = self.attr("data-width");
+                        var height = self.attr("data-height");
+
+                        WindowHandler.url = self.attr("src");
+                        WindowHandler.params = "width=" + width + ",height=" + height;
+
+                        WindowHandler.openWindow();
+                    }
+                },"img")
+            ;
+        });
+    </script>
+    <div id="dscript"></div>
     <div class="greyBg">
         <form action="" method="post">
             <input type="hidden" value="true" name="getFiles" />
@@ -131,6 +179,9 @@
                     <table class="fileList">
                         <tr>
                             <th>
+                                &nbsp;
+                            </th>
+                            <th>
                                 <f:translate key="filename" />
                             </th>
                             <th>
@@ -142,6 +193,9 @@
                         </tr>
                         <f:for each="{files}" as="file">
                             <tr>
+                                <td>
+                                    <img src="{file.url}" alt="" data-width="{file.width}" data-height="{file.height}" />
+                                </td>
                                 <td>
                                     <input type="checkbox" name="files[]" value="{file.url}" id="{file.uniqId}" />
                                     <label for="{file.uniqId}">

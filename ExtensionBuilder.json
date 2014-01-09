@@ -39,7 +39,7 @@
             },
             "description" : "",
             "key" : "awresize",
-            "mainModule" : "web",
+            "mainModule" : "user",
             "name" : "Image Resizer",
             "tabLabel" : "main"
         }
@@ -54,7 +54,7 @@
         "shy" : false,
         "state" : "beta",
         "targetVersion" : "6.0",
-        "version" : "1.1.0"
+        "version" : "1.2.0"
     },
     "extensionKey" : "aw_resize",
     "name" : "Image resizer",
