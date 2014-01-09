@@ -54,10 +54,10 @@
         "shy" : false,
         "state" : "beta",
         "targetVersion" : "6.0",
-        "version" : "1.0.1"
+        "version" : "1.1.0"
     },
     "extensionKey" : "aw_resize",
-    "name" : "aw_resize",
+    "name" : "Image resizer",
     "originalExtensionKey" : "aw_resize",
     "persons" : [
         {

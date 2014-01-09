@@ -2,30 +2,43 @@
 Users manual
 ============
 
-Target group: **Editors**
+Installation
+============
 
-Here should be described how to use the extension from the editor pespective.
+**Install the extension**
 
-* How it works?
-* How to install the plugin on a web page?
-* What options are available?
+Install the extension from the extension manager or download it from the TYPO3 extension repository (TER) at http://typo3.org/extensions/repository/view/aw_resize
 
-Language should be non-technical, explaining, using small examples. Don't use to many acronyms unless they have been explained. Don't be confusing by putting information targeting administrators.
+**Prerequisites**
 
-Provide screenshots of a neutral Backend such as the `Introduction Package`_ for instance. Keep in mind that the User manual chapter is a candidate to be re-used in a larger documentation compilation. Let imagine a company / organisation is generating a specific documentation towards its clients or end users and can possibly take advantage of the `User manual`_.
+* An image manipulation library has to installed on the server and configured to work with TYPO3
+* Read / Write permissions for the 'fileadmin' folder and all of its sub-folders
+* An empty folder must be created under /fileadmin/user_upload titled 'dummy' this is used if the user does not have a filemount assigned to his/her usergoup
+* The extension assumes that the folder structure of the installation has not been altered in any way and specifically the /typo3 folder has remained unchanged
 
-.. figure:: Images/UserManual/BackendView.png
-		:width: 500px
-		:alt: Backend view
+**Configuration**
 
-		Default Backend view (caption of the image)
+None whatsoever
 
-		The Backend view of TYPO3 after the user has clicked on module "Page". (legend of the image)
+How it Works
+=============
 
-FAQ
-====
+**Some Background**
 
-Possible subsection: FAQ
+the extension will try to find the find the filemount from the usergroup of the user currently logged in
+if many filemounts are assigned the first one is used.
+if the user has admin rights then the user can access all the images under the fileamdin folder
+if the user has admin rights and belongs to usergroups with filemounts all images can be accessed under fileamdin folder
 
-.. _User manual:
-.. _Introduction Package: http://demo.typo3.org/
+**Resize the images**
+
+Just navigate to folder the the images reside, select them, enter the new dimensions in the input fields below the table
+and hit 'Resize !'
+You should be able see the resized images right away in the table above.
+
+Tips and Tricks
+===============
+**Tip 1**
+
+Always select an image that hasn't been resized yet as the source image otherwise you 'll end up with a rather
+long filename eventually.
