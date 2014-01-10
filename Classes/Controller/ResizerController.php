@@ -49,10 +49,8 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function listAction() {
-        //todo add thumbnails
-
         $breadCrumb = "";
-        $Repository = new ResizerRepository();
+        $this->resizerRepository = new ResizerRepository();
         $sessionData = $GLOBALS['BE_USER']->getSessionData('tx_awresize');
 
         if(isset($sessionData["resizer"]["relPath"]))
@@ -71,10 +69,10 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $GLOBALS['BE_USER']->setAndSaveSessionData('tx_awresize', $sessionData);
         }
 
-        $Repository->setRelPath();
+        $this->resizerRepository->setRelPath();
 
-        $files = $Repository->getFiles();
-        $folders = $Repository->getFolders();
+        $files = $this->resizerRepository->getFiles();
+        $folders = $this->resizerRepository->getFolders();
 
 		$this->view->assign('folders', $folders);
 		$this->view->assign('files', $files);
@@ -82,7 +80,7 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         if(isset($_POST["doResize"]))
         {
-            $Repository->resizeFiles($_POST);
+            $this->resizerRepository->resizeFiles($_POST);
             // un-setting POST array in order to avoid a vicious loop after reloading the list
             unset($_POST);
             $this->listAction();

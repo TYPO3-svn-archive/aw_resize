@@ -8,12 +8,12 @@ if (!defined('TYPO3_MODE')) {
 	'Feawresize',
 	array(
 		'Resizer' => 'list',
-		
+
 	),
 	// non-cacheable actions
 	array(
-		'Resizer' => '',
-		
+		'Resizer' => 'list',
+
 	)
 );
 

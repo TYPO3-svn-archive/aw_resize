@@ -1,0 +1,90 @@
+h1,h2,h3,h4,h5,h6,form
+{
+    margin: 0;
+    padding: 0;
+}
+.greyBg
+{
+    background: #DDDDDD;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.greyBg h4
+{
+    background: #EBEBEB;
+    margin: 10px 0;
+    padding: 2px 5px;
+}
+
+.folderList input[type=submit]
+{
+    padding: 0 10px;
+    margin: 5px;
+}
+
+table
+{
+    border: 1px solid #f4f4f4;
+    border-collapse: separate;
+    width: 100%;
+}
+
+table td
+{
+    border: 1px solid #f4f4f4;
+    border-collapse: separate;
+}
+
+.alignRight
+{
+    text-align: right;
+}
+
+.alignCenter
+{
+    text-align: center;
+}
+
+.dims
+{
+    float: left;
+    margin: 0 15px 10px 0;
+    width: 31%;
+}
+
+.dims label
+{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dims input
+{
+    width: 100%;
+    font-size: 14pt;
+    text-align: center;
+}
+
+.doResize.dims
+{
+    float: right;
+    margin-right: 0;
+}
+
+.stretcher
+{
+    clear: both;
+}
+
+.fileList img
+{
+    max-width: 100px;
+}
+
+.fileList td:first-child
+{
+    width: 1px;
+}
+

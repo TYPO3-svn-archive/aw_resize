@@ -13,31 +13,6 @@ plugin.tx_awresize {
 	}
 }
 
-plugin.tx_awresize._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-aw-resize table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-aw-resize table th {
-		font-weight:bold;
-	}
-
-	.tx-aw-resize table td {
-		vertical-align:top;
-	}
-)
-
  # Module configuration
 module.tx_awresize {
 	persistence {

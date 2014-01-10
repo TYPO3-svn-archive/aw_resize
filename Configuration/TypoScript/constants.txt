@@ -12,18 +12,3 @@ plugin.tx_awresize {
 		storagePid =
 	}
 }
-
-module.tx_awresize {
-	view {
-		# cat=module.tx_awresize/file; type=string; label=Path to template root (BE)
-		templateRootPath = EXT:aw_resize/Resources/Private/Backend/Templates/
-		# cat=module.tx_awresize/file; type=string; label=Path to template partials (BE)
-		partialRootPath = EXT:aw_resize/Resources/Private/Backend/Partials/
-		# cat=module.tx_awresize/file; type=string; label=Path to template layouts (BE)
-		layoutRootPath = EXT:aw_resize/Resources/Private/Backend/Layouts/
-	}
-	persistence {
-		# cat=module.tx_awresize//a; type=string; label=Default storage PID
-		storagePid =
-	}
-}
