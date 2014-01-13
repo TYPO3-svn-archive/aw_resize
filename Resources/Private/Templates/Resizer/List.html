@@ -70,7 +70,7 @@
                                 <f:translate key="dimensions" />
                             </th>
                             <th>
-                                <f:translate key="mime" />
+                                <f:translate key="filetype" />
                             </th>
                         </tr>
                         <f:for each="{files}" as="file">
@@ -79,7 +79,7 @@
                                     <img src="{file.url}" alt="" data-width="{file.width}" data-height="{file.height}" />
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="files[]" value="{file.url}" id="{file.uniqId}" />
+                                    <input type="checkbox" name="files[]" value="{file.url}" id="{file.uniqId}" data-extension="{file.extension}" />
                                     <label for="{file.uniqId}">
                                         {file.filename}.{file.extension}
                                     </label>
@@ -88,11 +88,37 @@
                                     {file.width} x {file.height}
                                 </td>
                                 <td class="alignRight">
-                                    {file.mime}
+                                    {file.extension}
                                 </td>
                             </tr>
                         </f:for>
                     </table>
+
+                    <div class="imageSelection">
+                        <div class="imageSelectionItem">
+                            <a href="#" class="all"><f:translate key="all" /></a>
+                        </div>
+                        <div class="imageSelectionItem">
+                            <a href="#" class="none"><f:translate key="none" /></a>
+                        </div>
+                        <div class="imageSelectionItem">
+                            <a href="#" class="invert"><f:translate key="invert" /></a>
+                        </div>
+                        <div class="imageSelectionItem">
+                            ||
+                        </div>
+                        <div class="imageSelectionItem">
+                            <a href="#" class="filetype_jpg">jpg</a>
+                        </div>
+                        <div class="imageSelectionItem">
+                            <a href="#" class="filetype_png">png</a>
+                        </div>
+                        <div class="imageSelectionItem">
+                            <a href="#" class="filetype_gif">gif</a>
+                        </div>
+                        <div class="stretcher"></div>
+                    </div>
+
                     <div class="dimsWrapper">
                         <h4 class="alignCenter"><f:translate key="enter_new_dimensions" /></h4>
 

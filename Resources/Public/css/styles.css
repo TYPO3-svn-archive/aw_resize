@@ -136,3 +136,33 @@ table td
     font-size: 12pt;
 }
 
+.imageSelection .imageSelectionItem
+{
+    float: left;
+    margin: 5px 10px 0px 0px;
+}
+
+.imageSelection a
+{
+    background-color: #F6F6F6;
+    background-image: -moz-linear-gradient(center top , #F6F6F6 10%, #D5D5D5 90%);
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    border: 1px solid #7C7C7C;
+    border-radius: 1px;
+    color: #434343;
+    cursor: pointer;
+    padding: 2px 4px;
+    display: block;
+}
+
+.imageSelection a:hover
+{
+    background-color: #C8C8C8;
+    background-image: -moz-linear-gradient(center top , #F6F6F6 10%, #BDBCBC 90%);
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    border: 1px solid #737F91;
+    color: #1E1E1E;
+    cursor: pointer;
+}

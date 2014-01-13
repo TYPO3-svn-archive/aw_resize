@@ -65,8 +65,5 @@ $TCA['tx_awresize_domain_model_resizer'] = array(
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(Array('LLL:EXT:/locallang_db.php:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
-/*
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Resources/Public/css',"styles.css");
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Resources/Public/js',"jquery-1.9.1.min.js");
-*/
+
 ?>

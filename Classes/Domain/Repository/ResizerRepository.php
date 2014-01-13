@@ -135,11 +135,7 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
                     {
                         $getImageSize = getimagesize($webDir . $file);
 
-                        if(
-                            $getImageSize["mime"] == "image/jpeg" ||
-                            $getImageSize["mime"] == "image/gif" ||
-                            $getImageSize["mime"] == "image/png"
-                        )
+                        if($this->isSupportedFileType($getImageSize["mime"]))
                         {
                             $uniqId = uniqid("rand", true);
                             $pathInfo = pathinfo($webDir . $file);
@@ -164,6 +160,18 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         }
 
         return $files;
+    }
+
+    protected function isSupportedFileType($fileType)
+    {
+        if(
+            $fileType == "image/jpeg" ||
+            $fileType == "image/gif" ||
+            $fileType == "image/png"
+        )
+            return true;
+
+        return false;
     }
 
     public function resizeFiles($post)

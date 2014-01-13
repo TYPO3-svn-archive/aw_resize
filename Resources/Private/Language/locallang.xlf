@@ -40,6 +40,10 @@
 				<source>Mime</source>
 			</trans-unit>
 
+			<trans-unit id="filetype">
+				<source>File Type</source>
+			</trans-unit>
+
 			<trans-unit id="enter_new_dimensions">
 				<source>Enter new dimensions</source>
 			</trans-unit>
@@ -56,8 +60,20 @@
 				<source>Resize !</source>
 			</trans-unit>
 
-			<trans-unit id="back_to_root_folder">
-				<source>Back to root folder</source>
+			<trans-unit id="all">
+				<source>All</source>
+			</trans-unit>
+
+			<trans-unit id="all">
+				<source>All</source>
+			</trans-unit>
+
+			<trans-unit id="none">
+				<source>None</source>
+			</trans-unit>
+
+			<trans-unit id="invert">
+				<source>Invert Selection</source>
 			</trans-unit>
 
 		</body>

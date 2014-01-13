@@ -29,4 +29,54 @@ jQuery(function() {
             }
         },"img")
     ;
+
+    $(".imageSelection")
+        .on({
+            click : function()
+            {
+                var checkboxes = $(".fileList input[type='checkbox']");
+
+                switch ($(this).attr("class"))
+                {
+                    case "all":
+                        checkboxes.prop("checked", true);
+                    break;
+
+                    case "none":
+                        checkboxes.prop("checked", false);
+                    break;
+
+                    case "invert":
+                        $.each(checkboxes, function(key, value)
+                        {
+                            $(value).prop("checked", !$(value).prop("checked"));
+                        });
+                    break;
+
+                    case "filetype_jpg":
+                        $.each($(".fileList input[type='checkbox'][data-extension='jpg']"), function(key, value)
+                        {
+                            $(value).prop("checked", !$(value).prop("checked"));
+                        });
+                    break;
+
+                    case "filetype_png":
+                        $.each($(".fileList input[type='checkbox'][data-extension='png']"), function(key, value)
+                        {
+                            $(value).prop("checked", !$(value).prop("checked"));
+                        });
+                    break;
+
+                    case "filetype_gif":
+                        $.each($(".fileList input[type='checkbox'][data-extension='gif']"), function(key, value)
+                        {
+                            $(value).prop("checked", !$(value).prop("checked"));
+                        });
+                    break;
+
+                }
+
+                return false;
+            }
+        },"a");
 });
