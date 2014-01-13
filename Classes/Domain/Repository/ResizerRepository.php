@@ -137,6 +137,7 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
                         if(
                             $getImageSize["mime"] == "image/jpeg" ||
+                            $getImageSize["mime"] == "image/gif" ||
                             $getImageSize["mime"] == "image/png"
                         )
                         {
@@ -205,19 +206,37 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         $image_p = imagecreatetruecolor($width, $height);
 
         //TODO support more file types
+        $savePath =  ".." . $this->relPath . $pathInfo["filename"] . "__" . $width . "x" . $height . "." . $pathInfo["extension"];
         switch($mime)
         {
             case "image/jpeg":
                 $image = imagecreatefromjpeg($filename);
+
                 imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
-                imagejpeg($image_p, ".." . $this->relPath . $pathInfo["filename"] . "__" . $width . "x" . $height . "." . $pathInfo["extension"]);
+
+                imagejpeg($image_p, $savePath);
             break;
 
             case "image/png":
                 $image = imagecreatefrompng($filename);
+
+                imagealphablending($image_p, false);
+                imagesavealpha($image_p, true);
                 imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
-                imagepng($image_p, ".." . $this->relPath . $pathInfo["filename"] . "__" . $width . "x" . $height . "." . $pathInfo["extension"]);
+
+                imagepng($image_p, $savePath);
             break;
+
+            case "image/gif":
+                $image = imagecreatefromgif($filename);
+
+                imagealphablending($image_p, false);
+                imagesavealpha($image_p, true);
+                imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+                imagegif($image_p, $savePath);
+            break;
+
         }
     }
 
