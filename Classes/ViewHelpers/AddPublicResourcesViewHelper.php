@@ -1,7 +1,7 @@
 <?php
 namespace Alexweb\AwResize\ViewHelpers;
 
-class AddPublicResourcesViewHelper extends  \TYPO3\CMS\Fluid\ViewHelpers\Be\ContainerViewHelper {
+class AddPublicResourcesViewHelper extends  \TYPO3\CMS\Fluid\ViewHelpers\Be\AbstractBackendViewHelper {
 
     public function render() {
         $doc = $this->getDocInstance();

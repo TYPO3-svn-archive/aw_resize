@@ -3,37 +3,15 @@ h1,h2,h3,h4,h5,h6,form
     margin: 0;
     padding: 0;
 }
-.greyBg
+
+input, textarea, select, button
 {
-    background: #DDDDDD;
-    padding: 10px;
-    margin: 10px 0;
+    font-size: 12px;
 }
 
-.greyBg h4
+.alignLeft
 {
-    background: #EBEBEB;
-    margin: 10px 0;
-    padding: 2px 5px;
-}
-
-.folderList input[type=submit]
-{
-    padding: 0 10px;
-    margin: 5px;
-}
-
-table
-{
-    border: 1px solid #f4f4f4;
-    border-collapse: separate;
-    width: 100%;
-}
-
-table td
-{
-    border: 1px solid #f4f4f4;
-    border-collapse: separate;
+    text-align: left;
 }
 
 .alignRight
@@ -46,11 +24,97 @@ table td
     text-align: center;
 }
 
+.floatLeft
+{
+    float: left;
+}
+
+.stretcher
+{
+    clear: both;
+}
+
+.greyBg
+{
+    background: #DDDDDD;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.greyBg h1
+{
+    font-size: 16pt;
+}
+
+.greyBg h3
+{
+    font-size: 13pt;
+}
+
+.greyBg h4
+{
+    background: #EBEBEB;
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 11pt;
+}
+
+.breadCrumbWrapper
+{
+    background: #EBEBEB;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.breadCrumb
+{
+    margin-top: 4px;
+    font-size: 14px;
+    float: left;
+}
+
+table
+{
+    border: 1px solid #f4f4f4;
+    border-collapse: separate;
+    width: 100%;
+    margin-top: 5px;
+}
+
+table th
+{
+    text-align: center;
+    font-size: 9pt;
+}
+
+table td
+{
+    border: 1px solid #f4f4f4;
+    border-collapse: separate;
+    vertical-align: middle;
+    font-size: 9pt;
+}
+
+.folderList input[type=submit]
+{
+    margin: 5px;
+}
+
+.fileList img
+{
+    max-width: 100px;
+}
+
+.fileList td:first-child
+{
+    width: 1px;
+}
+
 .dims
 {
     float: left;
     margin: 0 15px 10px 0;
-    width: 31%;
+    width: 100px;
 }
 
 .dims label
@@ -63,28 +127,12 @@ table td
 .dims input
 {
     width: 100%;
-    font-size: 14pt;
+    font-size: 15pt;
     text-align: center;
 }
 
-.doResize.dims
+.doResize.dims input[type=submit]
 {
-    float: right;
-    margin-right: 0;
-}
-
-.stretcher
-{
-    clear: both;
-}
-
-.fileList img
-{
-    max-width: 100px;
-}
-
-.fileList td:first-child
-{
-    width: 1px;
+    font-size: 12pt;
 }
 

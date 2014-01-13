@@ -14,14 +14,13 @@ var WindowHandler =
 };
 
 jQuery(function() {
-    console.log("loaded");
     $(".filelist")
         .on({
             click:function()
             {
                 var self = $(this);
-                var width = self.attr("data-width");
-                var height = self.attr("data-height");
+                var width = parseInt(self.attr("data-width")) + 10;
+                var height = parseInt(self.attr("data-height")) + 10;
 
                 WindowHandler.url = self.attr("src");
                 WindowHandler.params = "width=" + width + ",height=" + height;

@@ -2,31 +2,38 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-<h1>
-    <f:translate key="ext_title" />
-</h1>
 
-<f:flashMessages />
+    <f:flashMessages />
     <pager:addPublicResources />
 
     <div class="greyBg">
-        <form action="" method="post">
-            <input type="hidden" value="true" name="getFiles" />
-            <input type="hidden" value="" name="rootRelPath" />
-
-            <input type="submit" value="<f:translate key='back_to_root_folder' />" />
-        </form>
+        <h1 class="alignLeft">
+            <f:translate key="ext_title" />
+        </h1>
     </div>
 
+
     <div class="greyBg">
+
         <h3><f:translate key="supported_folders_in_this_folder" /></h3>
+
+        <div class="breadCrumbWrapper">
+            <form action="" method="post" class="floatLeft">
+                <input type="hidden" value="true" name="getFiles" />
+                <input type="hidden" value="" name="rootRelPath" />
+
+                <input type="submit" value="fileadmin {fileMountPath}" />
+            </form>
+
+            <span class="breadCrumb">&nbsp; {breadCrumb}</span>
+            <div class="stretcher"></div>
+        </div>
+
         <f:if condition="<f:count subject='{folders}' /> <= 0">
             <f:then>
-                <h4>fileadmin/{breadCrumb}</h4>
                 <h4 class="alignCenter"><f:translate key="there_are_no_supported_folders_in_this_folder" /></h4>
             </f:then>
             <f:else>
-                <h4>fileadmin/{breadCrumb}</h4>
                 <f:for each="{folders}" as="folder">
                     <form action="" method="post" class="folderList">
                         <input type="hidden" value="true" name="getFiles" />
@@ -37,10 +44,13 @@
                 </f:for>
             </f:else>
         </f:if>
+
     </div>
 
     <div class="greyBg">
+
         <h3><f:translate key="supported_files_in_this_folder" /></h3>
+
         <f:if condition="<f:count subject='{files}' /> <= 0">
             <f:then>
                 <h4 class="alignCenter"><f:translate key="there_are_no_supported_files_in_this_folder" /></h4>
@@ -105,5 +115,6 @@
                 </form>
             </f:else>
         </f:if>
+
     </div>
 </f:section>

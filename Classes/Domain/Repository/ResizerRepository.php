@@ -40,7 +40,7 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
      */
 
     private $staticPath = "fileadmin";
-    private $fileMount = null;
+    private $fileMountPath = null;
     private $relPath = null;
 
     public function setRelPath()
@@ -53,24 +53,24 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
         if($GLOBALS["BE_USER"]->isAdmin())
         {
-            $this->fileMount = "/";
+            $this->fileMountPath = "/";
         }
         else
         {
-            $FileMount = $this->getFileMount();
+            $FileMount = $this->getFileMountModel();
 
             if(!empty($FileMount))
-                $this->fileMount = $FileMount["path"];
+                $this->fileMountPath = $FileMount["path"];
             else
-                $this->fileMount = "/user_upload/dummy/";
+                $this->fileMountPath = "/user_upload/dummy/";
         }
 
         $sessionData = $GLOBALS['BE_USER']->getSessionData('tx_awresize');
 
         if(isset($sessionData["resizer"]["relPath"]))
-            $this->relPath = $this->staticPath . $this->fileMount . $sessionData["resizer"]["relPath"];
+            $this->relPath = $this->staticPath . $this->fileMountPath . $sessionData["resizer"]["relPath"];
         else
-            $this->relPath = $this->staticPath . $this->fileMount;
+            $this->relPath = $this->staticPath . $this->fileMountPath;
     }
 
     public function getFolders()
@@ -167,15 +167,16 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
     public function resizeFiles($post)
     {
-        foreach($post["files"] as $file)
-        {
-            $this->resizeFile($post, $file);
-        }
+        if(!empty($post["files"]))
+            foreach($post["files"] as $file)
+            {
+                $this->resizeFile($post, $file);
+            }
 
-        return true;
+        return;
     }
 
-    public function resizeFile($post, $filename)
+    protected function resizeFile($post, $filename)
     {
         $width = $post["width"];
         $height = $post["height"];
@@ -186,6 +187,9 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         $width_orig = $getImageSize[0];
         $height_orig = $getImageSize[1];
         $mime = $getImageSize["mime"];
+
+        if($width == "" && $height != "")
+            $width = $width_orig;
 
         $ratio_orig = $width_orig / $height_orig;
 
@@ -217,7 +221,7 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         }
     }
 
-    public function getFileMount()
+    protected function getFileMountModel()
     {
         //$GLOBALS['TYPO3_DB']->debugOutput = true;
 
@@ -231,6 +235,11 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
             $Model = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($query);
 
         return $Model;
+    }
+
+    public function getFileMountPath()
+    {
+        return $this->fileMountPath;
     }
 
 }

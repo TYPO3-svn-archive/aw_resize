@@ -53,9 +53,6 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $this->resizerRepository = new ResizerRepository();
         $sessionData = $GLOBALS['BE_USER']->getSessionData('tx_awresize');
 
-        if(isset($sessionData["resizer"]["relPath"]))
-            $breadCrumb = $sessionData["resizer"]["relPath"];
-
         if(isset($_POST["getFiles"]))
         {
             //update the session variable only when there is a post
@@ -65,9 +62,11 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             if(isset($_POST["rootRelPath"]))
                 $sessionData["resizer"]["relPath"] = $_POST["rootRelPath"];
 
-            $breadCrumb = $sessionData["resizer"]["relPath"];
             $GLOBALS['BE_USER']->setAndSaveSessionData('tx_awresize', $sessionData);
         }
+
+        if(isset($sessionData["resizer"]["relPath"]))
+            $breadCrumb = $sessionData["resizer"]["relPath"];
 
         $this->resizerRepository->setRelPath();
 
@@ -77,6 +76,7 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->view->assign('folders', $folders);
 		$this->view->assign('files', $files);
 		$this->view->assign('breadCrumb', $breadCrumb);
+		$this->view->assign('fileMountPath', $this->resizerRepository->getFileMountPath());
 
         if(isset($_POST["doResize"]))
         {
