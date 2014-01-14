@@ -88,20 +88,14 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
             if ($dh = opendir($dir)) {
                 while (($folder = readdir($dh)) !== false)
                 {
-                    if( $folder != "." &&
-                        $folder != ".." &&
-                        $folder != "_processed_" &&
-                        $folder != "_migrated_" &&
-                        $folder != "_migrated" &&
-                        $folder != "_temp_"
-                    )
+                    if($this->isSupportedFolder($folder))
                     {
                         $pathInfo = pathinfo($webDir . $folder);
 
+                        //we assume that folder dont have extensions so we can only show folders
                         if(!isset($pathInfo["extension"]))
                         {
                             $uniqId = uniqid("rand", true);
-                            $pathInfo = pathinfo($webDir . $folder);
 
                             $folders[$uniqId]["uniqId"] = $uniqId;
                             $folders[$uniqId]["basename"] = $pathInfo["basename"];
@@ -134,6 +128,12 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
                     if($file != "." && $file != "..")
                     {
                         $getImageSize = getimagesize($webDir . $file);
+                        $aExtParts = explode("/",$getImageSize["mime"]);
+
+                        if(isset($aExtParts[1]))
+                            $extension = $aExtParts[1];
+                        else
+                            $extension = $getImageSize["mime"];
 
                         if($this->isSupportedFileType($getImageSize["mime"]))
                         {
@@ -145,7 +145,7 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
                             $files[$uniqId]["dirname"] = $pathInfo["dirname"];
                             $files[$uniqId]["basename"] = $pathInfo["basename"];
                             $files[$uniqId]["filename"] = $pathInfo["filename"];
-                            $files[$uniqId]["extension"] = $pathInfo["extension"];
+                            $files[$uniqId]["extension"] = $extension;
                             $files[$uniqId]["url"] = $pathInfo["dirname"] . "/" . $pathInfo["basename"];
                             $files[$uniqId]["width"] = $getImageSize[0];
                             $files[$uniqId]["height"] = $getImageSize[1];
@@ -168,6 +168,20 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
             $fileType == "image/jpeg" ||
             $fileType == "image/gif" ||
             $fileType == "image/png"
+        )
+            return true;
+
+        return false;
+    }
+
+    protected function isSupportedFolder($folder)
+    {
+        if( $folder != "." &&
+            $folder != ".." &&
+            $folder != "_processed_" &&
+            $folder != "_migrated_" &&
+            $folder != "_migrated" &&
+            $folder != "_temp_"
         )
             return true;
 

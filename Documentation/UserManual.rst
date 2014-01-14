@@ -25,7 +25,8 @@ How it Works
 
 **Some Background**
 
-the extension will try to find the filemount from the usergroup of the user currently logged in
+The extension will try to find the filemount from the usergroup of the user currently logged in
+
 * if many filemounts are assigned the first one will be used.
 * if no filemounts are assigned '/fileadmin/user_upload/dummy' will be used as a fallback until a filemount is assigned
 * if the user has admin rights then the user can access all the images under the fileamdin folder.
@@ -33,8 +34,7 @@ the extension will try to find the filemount from the usergroup of the user curr
 
 **Resize the images**
 
-Just navigate to folder the the images reside, select them, enter the new dimensions in the input fields below the table
-and hit 'Resize !'
+Just navigate to folder the images reside, select them, enter the new dimensions in the input fields below and hit 'Resize !'.
 You should be able see the resized images right away in the table above.
 
 Screenshots

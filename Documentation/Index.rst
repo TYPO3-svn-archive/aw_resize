@@ -26,5 +26,5 @@ The content of this document is related to TYPO3, a GNU/GPL CMS/Framework availa
 What does it do
 ==============
 The extension enables backend users to resize images that reside under the filemount of the usergroup
-the user currently logged in is assigned to or the entire fileamdin folder if the user has admin rights.
-Folders at any depth can be reached but only .jpg and .png files are supported in this version.
+they are assigned to or the entire fileamdin folder if the user has admin rights.
+Folders at any depth can be reached but only .jpg, .png files are supported in this version.

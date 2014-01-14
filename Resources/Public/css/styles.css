@@ -92,6 +92,7 @@ table td
     border: 1px solid #f4f4f4;
     border-collapse: separate;
     vertical-align: middle;
+    padding: 2px;
     font-size: 9pt;
 }
 

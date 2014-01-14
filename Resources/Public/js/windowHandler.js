@@ -54,7 +54,7 @@ jQuery(function() {
                     break;
 
                     case "filetype_jpg":
-                        $.each($(".fileList input[type='checkbox'][data-extension='jpg']"), function(key, value)
+                        $.each($(".fileList input[type='checkbox'][data-extension='jpeg']"), function(key, value)
                         {
                             $(value).prop("checked", !$(value).prop("checked"));
                         });
