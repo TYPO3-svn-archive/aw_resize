@@ -4,7 +4,7 @@ Image Resizer
 
 :Extension name: Image Resizer
 :Extension key: aw_resize
-:Version: 1.2.0
+:Version: 1.3.0
 :Description: resize images in the backend on-demand
 :Language: en
 :Author: Alexandros
@@ -26,5 +26,5 @@ The content of this document is related to TYPO3, a GNU/GPL CMS/Framework availa
 What does it do
 ==============
 The extension enables backend users to resize images that reside under the filemount of the usergroup
-they are assigned to or the entire fileamdin folder if the user has admin rights.
-Folders at any depth can be reached but only .jpg, .png files are supported in this version.
+the user currently logged in is assigned to or the entire fileamdin folder if the user has admin rights.
+Folders at any depth can be reached but only .jpg, .png and .gif files are supported in this version.
