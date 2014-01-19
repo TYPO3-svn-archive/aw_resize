@@ -46,10 +46,10 @@ class ResizerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
     public function setRelPath()
     {
         $requestUri = $_SERVER["REQUEST_URI"];
-        $parts = explode("typo3",$requestUri);
+        $parts = explode("/typo3/mod", $requestUri);
 
         if(isset($parts[0]))
-            $this->staticPath = $parts[0] . "fileadmin";
+            $this->staticPath = $parts[0] . "/" . $this->staticPath;
 
         if($GLOBALS["BE_USER"]->isAdmin())
         {
