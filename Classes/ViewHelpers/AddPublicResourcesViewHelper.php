@@ -6,11 +6,13 @@ class AddPublicResourcesViewHelper extends  \TYPO3\CMS\Fluid\ViewHelpers\Be\Abst
     public function render() {
         $doc = $this->getDocInstance();
         $pageRenderer = $doc->getPageRenderer();
+        $extRelPath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath("aw_resize");
 
-        $pageRenderer->addCssFile('/typo3conf/ext/aw_resize/Resources/Public/css/styles.css');
-        $pageRenderer->addJsFile("/typo3/contrib/jquery/jquery-" . $pageRenderer::JQUERY_VERSION_LATEST . ".min.js");
-        $pageRenderer->addJsFile("/typo3conf/ext/aw_resize/Resources/Public/js/app.js");
-        $pageRenderer->addJsFile("/typo3conf/ext/aw_resize/Resources/Public/js/windowHandler.js");
+        $pageRenderer->addCssFile($extRelPath . "Resources/Public/css/styles_aw_resize.css");
+
+        $pageRenderer->loadJquery();
+        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/windowHandler.js", "text/javascript", false);
+        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/app.js", "text/javascript", false);
 
         $output = $this->renderChildren();
         $output = $doc->startPage("aw_resize") . $output;

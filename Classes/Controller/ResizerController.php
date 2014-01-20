@@ -25,7 +25,7 @@ namespace Alexweb\AwResize\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use Alexweb\AwResize\Domain\Repository\ResizerRepository;
-
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  *
  *
@@ -48,19 +48,24 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+	public function listAction()
+    {
         $breadCrumb = "";
+        $GeneralUtility = new GeneralUtility();
         $this->resizerRepository = new ResizerRepository();
+
         $sessionData = $GLOBALS['BE_USER']->getSessionData('tx_awresize');
 
-        if(isset($_POST["getFiles"]))
+        $Post = $GeneralUtility->_POST();
+
+        if(isset($Post["getFiles"]))
         {
             //update the session variable only when there is a post
-            if(isset($_POST["relPath"]))
-                $sessionData["resizer"]["relPath"] .= $_POST["relPath"];
+            if(isset($Post["relPath"]))
+                $sessionData["resizer"]["relPath"] .= $Post["relPath"];
 
-            if(isset($_POST["rootRelPath"]))
-                $sessionData["resizer"]["relPath"] = $_POST["rootRelPath"];
+            if(isset($Post["rootRelPath"]))
+                $sessionData["resizer"]["relPath"] = $Post["rootRelPath"];
 
             $GLOBALS['BE_USER']->setAndSaveSessionData('tx_awresize', $sessionData);
         }
@@ -78,9 +83,9 @@ class ResizerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->view->assign('breadCrumb', $breadCrumb);
 		$this->view->assign('fileMountPath', $this->resizerRepository->getFileMountPath());
 
-        if(isset($_POST["doResize"]))
+        if(isset($Post["doResize"]))
         {
-            $this->resizerRepository->resizeFiles($_POST);
+            $this->resizerRepository->resizeFiles($Post);
             // un-setting POST array in order to avoid a vicious loop after reloading the list
             unset($_POST);
             $this->listAction();
