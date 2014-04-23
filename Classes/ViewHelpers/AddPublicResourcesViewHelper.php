@@ -11,8 +11,8 @@ class AddPublicResourcesViewHelper extends  \TYPO3\CMS\Fluid\ViewHelpers\Be\Abst
         $pageRenderer->addCssFile($extRelPath . "Resources/Public/css/styles_aw_resize.css");
 
         $pageRenderer->loadJquery();
-        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/windowHandler.js", "text/javascript", false);
-        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/app.js", "text/javascript", false);
+        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/windowHandler.js");
+        $pageRenderer->addJsFile($extRelPath . "Resources/Public/js/app.js");
 
         $output = $this->renderChildren();
         $output = $doc->startPage("aw_resize") . $output;
